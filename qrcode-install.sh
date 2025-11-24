@@ -44,7 +44,7 @@ mkdir -p "$HOME/bin"
 # 4. Download your qrcode script into ~/bin
 # ----------------------------------------------------------
 echo "⬇️ Downloading the qrcode script..."
-curl -fsSL https://raw.githubusercontent.com/truuue/qrcode-generator-macos/refs/heads/main/qrcode.sh -o "$HOME/bin/qrcode"
+curl -fsSL https://raw.githubusercontent.com/truuue/qrcode-generator-macos/main/qrcode.sh -o "$HOME/bin/qrcode"
 
 # ----------------------------------------------------------
 # 5. Make the script executable
