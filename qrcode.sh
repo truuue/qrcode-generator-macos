@@ -13,6 +13,6 @@ OUTPUT="qrcode-$DOMAIN.png"
 
 qrencode -o "$OUTPUT" "$URL"
 
-echo "QR code généré → $OUTPUT"
+echo "QR code generated → $OUTPUT"
 
 open "$OUTPUT"
