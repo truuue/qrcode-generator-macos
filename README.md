@@ -1,38 +1,38 @@
-# Générateur QR pour macOS
+# macOS QR code generator
 
-Un outil très léger pour créer un QR code d'une URL directement depuis ton terminal macOS. Le script `qrcode` se charge de générer l'image, de l'ouvrir et de lui donner un nom lisible.
+A tiny command-line utility that turns any URL into a QR code image and opens it automatically. The `qrcode` script names the file after the domain, runs `qrencode`, and saves the PNG beside your terminal session.
 
-## Fonctionnalités
+## Features
 
-- Détection du nom de domaine pour nommer automatiquement le fichier (`qrcode-exemple.com.png`).
-- Utilisation de `qrencode`, disponible via Homebrew.
-- Génération et affichage du QR en une seule commande (`qrcode <url>`).
-- Script d'installation `qrcode-install.sh` pour placer le binaire dans `~/bin` et le rendre immédiatement disponible.
+- Automatically extracts the domain from the URL to generate filenames like `qrcode-example.com.png`.
+- Delegates QR generation to `qrencode`, which is readily available through Homebrew.
+- Opens the generated image with the macOS preview app immediately after creation.
+- Provides an installer script (`qrcode-install.sh`) that copies the command into `~/bin` and ensures the directory is on your `PATH`.
 
-## Prérequis
+## Prerequisites
 
-1. macOS avec un terminal zsh.
-2. Homebrew installé (https://brew.sh/).
-3. `qrencode` installé :
+1. macOS with the default `zsh` shell (Big Sur or later is preferred).
+2. Homebrew available at [https://brew.sh](https://brew.sh).
+3. `qrencode` installed via Homebrew:
    ```sh
    brew install qrencode
    ```
 
 ## Installation
 
-### 1. Via le script d'installation
+### 1. Use the installer script
 
-Le script `qrcode-install.sh` installe automatiquement la commande `qrcode` dans `~/bin` et s'occupe d'ajouter ce répertoire au `PATH` si nécessaire :
+The `qrcode-install.sh` installer installs Homebrew if needed, installs `qrencode`, copies the `qrcode` script into `~/bin`, and updates your `PATH` when necessary:
 
 ```sh
 ./qrcode-install.sh
 ```
 
-Tu peux relancer le terminal ou `source ~/.zshrc` après l'exécution si le script ne l'a pas déjà fait.
+After the script finishes, open a new terminal session or run `source ~/.zshrc` if the installer modified your shell configuration.
 
-### 2. Installation manuelle
+### 2. Manual installation
 
-Si tu préfères installer le script toi-même :
+If you'd rather install everything yourself:
 
 ```sh
 mkdir -p "$HOME/bin"
@@ -40,35 +40,36 @@ cp qrcode "$HOME/bin/qrcode"
 chmod +x "$HOME/bin/qrcode"
 ```
 
-Ajoute `~/bin` au `PATH` dans `~/.zshrc` si ce n'est pas déjà fait :
+Ensure `~/bin` is exported in your `~/.zshrc` if it isn't already:
 
 ```sh
 export PATH="$HOME/bin:$PATH"
 ```
 
-## Utilisation
+## Usage
 
 ```sh
 qrcode https://example.com
 ```
 
-- Le fichier `qrcode-example.com.png` est généré dans le dossier courant.
-- L'image s'ouvre automatiquement dans l'application par défaut (aperçu, etc.).
-- Tu peux utiliser n'importe quelle URL valide (http ou https).
+- Creates `qrcode-example.com.png` in the current directory.
+- Automatically opens the image with the default macOS viewer.
+- Accepts any valid `http` or `https` URL.
 
-Pour forcer un nom de fichier différent, modifie `qrcode.sh` ou copie-le dans un autre script en adaptant la variable `OUTPUT`.
+To override the output filename, edit the `OUTPUT` variable inside `qrcode.sh` or wrap the script in another helper.
 
-## Débogage
+## Troubleshooting
 
-- Vérifie que `qrencode` est installé et accessible (`which qrencode`).
-- Assure-toi que `~/bin` est bien dans ton `PATH` en relançant ton shell ou `source ~/.zshrc`.
-- Les erreurs sont affichées dans la console, le script quitte avec un code non nul si l'URL est absente.
+- Run `which qrencode` to confirm the dependency is installed and reachable.
+- Verify `~/bin` appears in your `PATH` by running `echo $PATH` after sourcing `~/.zshrc`.
+- The script exits with code 1 if no URL is provided, and shell errors are printed directly to the terminal.
 
-## Structure
+## Project structure
 
-- `qrcode.sh` : script principal exécuté par la commande `qrcode`.
-- `qrcode-install.sh` : script d'installation qui copie `qrcode` dans `~/bin`.
+- `qrcode.sh`: the main script executed by the `qrcode` command.
+- `qrcode-install.sh`: installer that sets up dependencies, copies the script to `~/bin`, and updates your `PATH`.
+- `README.md`: this documentation.
 
-## Licence
+## License
 
-Non définie (utilisation libre, adapte à ton usage).
+Not specified (free to use — customize as you like).
