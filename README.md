@@ -72,4 +72,4 @@ To override the output filename, edit the `OUTPUT` variable inside `qrcode.sh` o
 
 ## License
 
-Not specified (free to use — customize as you like).
+Apache 2.0
