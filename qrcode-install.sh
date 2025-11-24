@@ -49,7 +49,7 @@ curl -fsSL https://raw.githubusercontent.com/truuue/qrcode-generator-macos/main/
 # ----------------------------------------------------------
 # 5. Make the script executable
 # ----------------------------------------------------------
-chmod +x "$HOME/bin/qrcode"
+chmod +x "$HOME/bin/qrcode.sh"
 
 # ----------------------------------------------------------
 # 6. Add ~/bin to PATH if needed
