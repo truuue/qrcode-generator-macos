@@ -13,9 +13,9 @@ A tiny command-line utility that turns any URL into a QR code image and opens it
 
 1. macOS with the default `zsh` shell (Big Sur or later is preferred).
 2. Homebrew available at [https://brew.sh](https://brew.sh).
-3. `qrencode` installed via Homebrew:
+3. `curl` installed via Homebrew:
    ```sh
-   brew install qrencode
+   brew install curl
    ```
 
 ## Installation
