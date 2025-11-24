@@ -20,15 +20,15 @@ A tiny command-line utility that turns any URL into a QR code image and opens it
 
 ## Installation
 
-### 1. Use the installer script
+### 1. Installer via shell download
 
-The `qrcode-install.sh` installer installs Homebrew if needed, installs `qrencode`, copies the `qrcode` script into `~/bin`, and updates your `PATH` when necessary:
+Download and run the installer from the repository in one command:
 
 ```sh
-./qrcode-install.sh
+curl -fsSL https://raw.githubusercontent.com/truuue/qrcode-generator-macos/refs/heads/main/qrcode-install.sh | zsh
 ```
 
-After the script finishes, open a new terminal session or run `source ~/.zshrc` if the installer modified your shell configuration.
+This single step installs Homebrew (if needed), installs `qrencode`, copies `qrcode` into `~/bin`, and ensures the directory is on your `PATH`. Open a new terminal session or run `source ~/.zshrc` if the installer updated your shell configuration.
 
 ### 2. Manual installation
 
